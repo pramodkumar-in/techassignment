@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
+import java.util.Scanner;
+
 public class StringLowMemoryFootPrint {
     /**
      * Length of the generated random string.
@@ -30,7 +32,14 @@ public class StringLowMemoryFootPrint {
      */
     private static final int BUFFER_SIZE_10MB = 1024 * 1024;
     public static void main(String[] args) throws Exception {
-        write((int) Math.pow(2.0D, 30.0D) - 1);
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter input from no of lines in the file");
+        int numberOfLines = sc.nextInt();
+        /**
+         * Test for max range 2^30 -1
+         */
+        //numberOfLines = (int) Math.pow(2.0D, 30.0D) - 1;
+        write(numberOfLines);
     }
     private static void write(int x) throws IOException {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_NAME), BUFFER_SIZE_10MB)) {
